@@ -5,10 +5,10 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@android:dimen/thumbnail_height"
-    android:paddingLeft="@android:dimen/notification_large_icon_width"
-    android:paddingRight="@android:dimen/notification_large_icon_width"
-    android:paddingTop="@android:dimen/thumbnail_height"
+    android:paddingBottom="@android:dimen/dialog_min_width_minor"
+    android:paddingLeft="@android:dimen/dialog_min_width_minor"
+    android:paddingRight="@android:dimen/dialog_min_width_minor"
+    android:paddingTop="@android:dimen/dialog_min_width_minor"
     tools:context="com.banking2fa.mainactivity.MainActivity">
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:id="@+id/textview"/>
+        android:id="@+id/textView"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -41,6 +41,5 @@
         android:text="@string/instructions"
         android:layout_below="@+id/imageView"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="27dp"
-        android:layout_marginLeft="27dp"/>
+        android:layout_marginTop="27dp" />
 </RelativeLayout>
