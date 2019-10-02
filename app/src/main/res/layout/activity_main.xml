@@ -37,28 +37,33 @@
         android:layout_height="113dp"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="158dp"
         android:layout_marginTop="136dp"
+        android:layout_marginEnd="159dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:srcCompat="@drawable/fingerprint"
-        tools:ignore="MissingConstraints,UnknownId"
-        tools:layout_editor_absoluteX="158dp" />
+        tools:ignore="MissingConstraints,UnknownId" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="358dp"
+        android:layout_height="36dp"
         android:layout_below="@+id/imageView"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="229dp"
         android:text="@string/instructions"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
