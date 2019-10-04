@@ -15,7 +15,8 @@
         android:layout_marginBottom="48dp"
         android:text="@android:string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="cancel_transfer" />
 
     <Button
         android:id="@+id/btnFinish"
@@ -24,10 +25,11 @@
         android:layout_marginStart="139dp"
         android:layout_marginEnd="55dp"
         android:layout_marginBottom="48dp"
-        android:text="@string/Finish"
+        android:text="Finish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnCancel" />
+        app:layout_constraintStart_toEndOf="@+id/btnCancel"
+        android:onClick="finish_transfer" />
 
     <TextView
         android:id="@+id/textView5"
@@ -91,14 +93,16 @@
         android:id="@+id/textInputLayout"
         android:layout_width="327dp"
         android:layout_height="54dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="472dp">
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="29dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ref"
             android:layout_width="389dp"
             android:layout_height="match_parent"
-            android:hint="Cash Transfer" />
+            android:hint="@string/Cash Transfer" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
