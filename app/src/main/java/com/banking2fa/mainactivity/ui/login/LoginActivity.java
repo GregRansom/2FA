@@ -1,6 +1,7 @@
 package com.banking2fa.mainactivity.ui.login;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -20,6 +21,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.banking2fa.mainactivity.R;
+import com.banking2fa.mainactivity.User_Accounts;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -115,7 +117,19 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
+
+
+
+
+
         String welcome = getString(R.string.welcome) + model.getDisplayName();
+
+        Intent intent = new Intent(this, User_Accounts.class);
+        //EditText editText = (EditText) findViewById(R.id.editText);
+        //String message = editText.getText().toString();
+        //intent.putExtra(EXTRA_MESSAGE, welcome);
+        startActivity(intent);
+
         // TODO : initiate successful logged in experience
         // this should transfer the user to a screen where they can select the following:
         /*

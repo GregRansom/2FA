@@ -12,4 +12,30 @@ Place your fingertip on the Home button to verify your identity
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+
+
+    <string-array name="user_accounts">
+        <item>[Select Account]</item>
+        <item>My Account</item>
+    </string-array>
+    <string name="user_account_label">From</string>
+    <string name="user_account_prompt">User Account</string>
+
+
+    <string-array name="recipient_accounts">
+        <item>[Select Account]</item>
+        <item>Takealot</item>
+        <item>Woolworths</item>
+        <item>Mr. Delivery</item>
+        <item>Mac Donald\'s</item>
+        <item>Burger King</item>
+    </string-array>
+
+    <string name="recipient_account_label">To</string>
+    <string name="recipient_account_prompt">Recipient Account</string>
+
+    <string name="payment_amount_label">Amount</string>
+
+    <string name="payment_reference_label">Reference</string>
 </resources>
