@@ -3,6 +3,7 @@ package com.banking2fa.mainactivity;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
@@ -10,6 +11,8 @@ import android.os.CancellationSignal;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
+
+import com.banking2fa.mainactivity.ui.login.LoginActivity;
 
 @TargetApi(Build.VERSION_CODES.M)
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {
@@ -64,10 +67,10 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     }@Override
 
     //onAuthenticationSucceeded is called when a fingerprint has been successfully matched to one of the fingerprints stored on the user’s device//
-    public void onAuthenticationSucceeded(
-            FingerprintManager.AuthenticationResult result) {
-
+    public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
         Toast.makeText(context, "Success!", Toast.LENGTH_LONG).show();
+        Intent login_view = new Intent(this.context,  LoginActivity.class);
+        context.startActivity(login_view);
     }
 
 }
