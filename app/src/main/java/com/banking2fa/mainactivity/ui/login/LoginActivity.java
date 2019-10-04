@@ -2,7 +2,6 @@ package com.banking2fa.mainactivity.ui.login;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -22,7 +21,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.banking2fa.mainactivity.R;
-import com.banking2fa.mainactivity.User_Accounts;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -120,25 +118,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
-        // TODO : initiate successful logged in experience
-        Intent logged_in = new Intent(this.context, User_Accounts.class);
-        context.startActivity(logged_in);
-
-        // this should transfer the user to a screen where they can select the following:
-        /*
-        Account A: taking money FROM
-        Account B: Sending money TO
-        Amount: Amount to be moved (>R2000 should require another biometric verification
-        Reference: Easy way to refer to to this transaction - completely user define and irrelevant, but necessary for best possible
-                   comparison to real life scenario.
-        2 x Buttons - Finish, and Cancel
-        Cancel: stop the transaction and do reset all input fields
-        Finish: display a summary  of the data in a user friendly and readable way, with another nested button asking to finish again to apply
-                changes
-        --> the changes should reflect automatically **i don't think we really need to implement a database for this... as it is fairly simple and
-            straightforward and implementing a database is just about the same just a hell of a lot more work - authentication should be done
-            with a DB however as i assume we need to implement one in order to receive full marks for the assignment.
-         */
+        // TODO : initiate successful logged in experience - this should be complete, but is still not working?
+        // this should transfer the user to a screen where they can select the following
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 

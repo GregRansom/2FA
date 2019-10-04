@@ -39,7 +39,7 @@
         android:layout_marginTop="140dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/Transfer From:" />
+        tools:text="Transfer From:" />
 
     <TextView
         android:id="@+id/textView6"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
         android:layout_marginTop="33dp"
-        android:text="@string/Transfer To:"
+        android:text="Transfer To:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editFrom"
         tools:text="@android:string/untitled"
@@ -60,7 +60,7 @@
         android:layout_marginStart="19dp"
         android:layout_marginTop="33dp"
         android:ems="10"
-        android:hint="@string/Amoint to be transfered"
+        android:hint="Amoint to be transfered"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
@@ -73,7 +73,7 @@
         android:layout_marginStart="17dp"
         android:layout_marginTop="25dp"
         android:ems="10"
-        android:hint="@string/Amount to be Received"
+        android:hint="Amount to be Received"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -84,7 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="60dp"
-        android:text="@string/Reference:"
+        android:text="Reference:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTo"
         tools:text="@android:string/untitled" />
@@ -102,7 +102,7 @@
             android:id="@+id/ref"
             android:layout_width="389dp"
             android:layout_height="match_parent"
-            android:hint="@string/Cash Transfer" />
+            android:hint="Cash Transfer" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
