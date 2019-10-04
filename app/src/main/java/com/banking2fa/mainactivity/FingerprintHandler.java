@@ -68,7 +68,10 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
 
     //onAuthenticationSucceeded is called when a fingerprint has been successfully matched to one of the fingerprints stored on the user’s device//
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
+        // this displays the success messge id the user is an authenticated user on the device
         Toast.makeText(context, "Success!", Toast.LENGTH_LONG).show();
+
+        //on successful authentication the system will move forward into the second stage of authentication. Something you KNOW (username, password)
         Intent login_view = new Intent(this.context,  LoginActivity.class);
         context.startActivity(login_view);
     }
