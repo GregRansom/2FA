@@ -1,21 +1,23 @@
 package com.banking2fa.mainactivity.ui.login;
 
+import android.content.Context;
+import android.util.Patterns;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import android.util.Patterns;
-
+import com.banking2fa.mainactivity.R;
 import com.banking2fa.mainactivity.data.LoginRepository;
 import com.banking2fa.mainactivity.data.Result;
 import com.banking2fa.mainactivity.data.model.LoggedInUser;
-import com.banking2fa.mainactivity.R;
 
 public class LoginViewModel extends ViewModel {
 
     private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
     private MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
     private LoginRepository loginRepository;
+    Context context;
 
     LoginViewModel(LoginRepository loginRepository) {
         this.loginRepository = loginRepository;

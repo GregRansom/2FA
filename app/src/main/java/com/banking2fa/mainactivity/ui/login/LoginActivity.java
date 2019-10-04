@@ -1,6 +1,8 @@
 package com.banking2fa.mainactivity.ui.login;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -20,10 +22,12 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.banking2fa.mainactivity.R;
+import com.banking2fa.mainactivity.User_Accounts;
 
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
+    private Context context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,6 +121,9 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
+        Intent logged_in = new Intent(this.context, User_Accounts.class);
+        context.startActivity(logged_in);
+
         // this should transfer the user to a screen where they can select the following:
         /*
         Account A: taking money FROM
