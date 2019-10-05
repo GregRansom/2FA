@@ -2,6 +2,7 @@ package com.banking2fa.mainactivity.ui.login;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -21,6 +22,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.banking2fa.mainactivity.R;
+import com.banking2fa.mainactivity.User_Accounts;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -118,8 +120,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
-        // TODO : initiate successful logged in experience - this should be complete, but is still not working?
-        // this should transfer the user to a screen where they can select the following
+        // TODO : initiate successful logged in experience
+        if (welcome != null){
+            Intent login = new Intent(LoginActivity.this, User_Accounts.class);
+            startActivity(login);
+        }
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 
