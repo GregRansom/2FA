@@ -1,6 +1,7 @@
 package com.banking2fa.mainactivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,7 @@ public class User_Accounts extends AppCompatActivity implements View.OnClickList
                     public void onClick(DialogInterface dialog, int which) {
                         //Complete the transaction and save the values to the db at a later stage.
                         Toast.makeText(getApplicationContext(), "Your Payment Was Successful!", Toast.LENGTH_LONG).show();
+                        clearAllFields((ViewGroup) findViewById(R.id.tlUserAccounts));
                     }
                 });
         dlgAlert.setCancelable(true);
@@ -65,6 +67,8 @@ public class User_Accounts extends AppCompatActivity implements View.OnClickList
 
     private void cancelTransaction(){
         clearAllFields((ViewGroup) findViewById(R.id.tlUserAccounts));
+        Intent logout = new Intent(null, FingerprintHandler.class);
+        startActivity(logout);
     }
 
     private void clearAllFields(ViewGroup group){
