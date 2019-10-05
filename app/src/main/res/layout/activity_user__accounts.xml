@@ -4,194 +4,175 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".User_Accounts"
-    tools:ignore="ExtraText">
+    tools:context=".User_Accounts">
 
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="133dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="32dp"
-        android:onClick="cancel_transfer"
-        android:text="@android:string/cancel"
+    <TableLayout
+        android:id="@+id/tlUserAccounts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:stretchColumns="1"
+        android:shrinkColumns="0"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="28dp" />
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/user_account_label"/>
+
+            <Spinner
+                android:id="@+id/spnUserAccounts"
+                android:layout_width="226dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/user_accounts"
+                android:spinnerMode="dialog"
+                android:prompt="@string/user_account_prompt" />
+        </TableRow>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="28dp" />
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/recipient_account_label" />
+            <Spinner
+                android:id="@+id/spnRecipientAccounts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/recipient_accounts"
+                android:spinnerMode="dialog"
+                android:prompt="@string/recipient_account_prompt" />
+        </TableRow>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="28dp" />
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/payment_amount_label" />
+            <EditText
+                android:id="@+id/etPaymentAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:layout_column="1"/>
+        </TableRow>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="28dp" />
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/payment_reference_label" />
+            <EditText
+                android:id="@+id/etPaymentReference"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_column="1"/>
+        </TableRow>
+
+    </TableLayout>
+    <!--<LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <Spinner
+            android:id="@+id/spnUserAccounts"
+            android:layout_width="226dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/user_accounts"
+            android:prompt="@string/user_account_prompt" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="28dp" />
+
+        <Spinner
+            android:id="@+id/spnRecipientAccounts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/recipient_accounts"
+            android:prompt="@string/recipient_account_prompt" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="28dp" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberSigned" />
+
+    </LinearLayout>-->
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="412dp"
+        android:layout_height="160dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnFinish"
-        android:layout_width="128dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="32dp"
-        android:onClick="finish_transfer"
-        android:text="Finish"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-
-    <RadioButton
-        android:id="@+id/radioFromA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="290dp"
-        android:text="Account A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/tlUserAccounts">
 
-    <RadioButton
-        android:id="@+id/radioFromB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="289dp"
-        android:text="Account B"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioFromA" />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
-    <EditText
-        android:id="@+id/edtAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="175dp"
-        android:ems="10"
-        android:hint="00.00"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@android:string/cancel" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="333dp"
-        android:text="Amount:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioToB" />
+        <Space
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="309dp"
-        android:text="Transfer To:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioFromB" />
+        <Button
+            android:id="@+id/btnFinish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finish" />
 
-    <RadioButton
-        android:id="@+id/radioToA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="288dp"
-        android:text="Account A"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
 
-    <RadioButton
-        android:id="@+id/radioToB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="288dp"
-        android:text="Account B"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioToA" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="309dp"
-        android:text="Transfer To:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="318dp"
-        android:text="Reference:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtAmount" />
-
-    <EditText
-        android:id="@+id/edtRef"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="175dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Reference"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <TextView
-        android:id="@+id/lblAccountAAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="72dp"
-        android:text="R100 000"
-        app:layout_constraintStart_toEndOf="@+id/radioFromA"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/lblAccountAAmount2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="63dp"
-        android:text="R100 000"
-        app:layout_constraintStart_toEndOf="@+id/radioToA"
-        app:layout_constraintTop_toBottomOf="@+id/lblAccountBAmount" />
-
-    <TextView
-        android:id="@+id/lblAccountBAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="16dp"
-        android:text="R120 000"
-        app:layout_constraintStart_toEndOf="@+id/radioFromB"
-        app:layout_constraintTop_toBottomOf="@+id/lblAccountAAmount" />
-
-    <TextView
-        android:id="@+id/lblAccountBAmount2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="10dp"
-        android:text="R120 000"
-        app:layout_constraintStart_toEndOf="@+id/radioToB"
-        app:layout_constraintTop_toBottomOf="@+id/lblAccountAAmount2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

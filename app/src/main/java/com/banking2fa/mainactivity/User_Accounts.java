@@ -1,155 +1,85 @@
 package com.banking2fa.mainactivity;
 
-import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.TextView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class User_Accounts extends AppCompatActivity {
-
-    private Context context;
-
+public class User_Accounts extends AppCompatActivity implements View.OnClickListener {
+    //private Button mButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user__accounts);
+        setTitle("Payments");
+        /*mButton = findViewById(R.id.btnCancel);
+        mButton.setOnClickListener(this);*/
+        (findViewById(R.id.btnCancel)).setOnClickListener(this);
+        (findViewById(R.id.btnFinish)).setOnClickListener(this);
     }
 
-    //listens for the cancel button to be clicked.
-    public void cancel_transfer(android.view.View canceled){
-        Intent logout = new Intent(null, FingerprintHandler.class);
-        startActivity(logout);
-    }
 
-    //listens for the finish button to be clicked.
-    //then performs the verification check on the amount.
-    public void finish_transfer(android.view.View finished){
-        //gets the payment reference
-        TextView getRef = (TextView) findViewById(R.id.edtRef);
-        String reference = getRef.getText().toString();
-        
-
-        //gets the current values of the accounts.
-        TextView AccountAFrom = (TextView) findViewById(R.id.lblAccountAAmount); //sets the amount to be subtracted from
-        TextView AccountBFrom = (TextView) findViewById(R.id.lblAccountBAmount);//sets the amount to be subtracted from
-        TextView AccountATo = (TextView) findViewById(R.id.lblAccountAAmount2);//sets the amount to be added to
-        TextView AccountBTo = (TextView) findViewById(R.id.lblAccountBAmount2);//sets the amount to be added to
-
-        String AccountAFromString = AccountAFrom.getText().toString();  //converts into local string
-        String AccountBFromString = AccountAFrom.getText().toString();//converts into local string
-        String AccountAToString = AccountAFrom.getText().toString();//converts into local string
-        String AccountBToString = AccountAFrom.getText().toString();//converts into local string
-
-        double FromAccountA = Double.parseDouble(AccountAFromString); //assigns proper variable type
-        double FromAccountB = Double.parseDouble(AccountBFromString);//assigns proper variable type
-        double ToAccountA = Double.parseDouble(AccountAToString);//assigns proper variable type
-        double ToAccountB = Double.parseDouble(AccountBToString);//assigns proper variable type
-
-                //gets the value of the Amount Field
-        EditText edtamount = (EditText) findViewById(R.id.edtAmount); //gets the input
-        String AmountString = edtamount.getText().toString(); //converts the EditText into local text
-        double Amount = Double.parseDouble(AmountString);       //passes the string into double format
-
-
-        //gets the value of the reference field
-        EditText edtRef = (EditText) findViewById(R.id.edtRef); //gets the input
-        String ref = edtRef.getText().toString(); //converts the input into local text
-
-        //gets/sets the values of the radio groups.
-        //if From A is selected then To B will auto Select, and vice versa
-        RadioButton radFromA = (RadioButton ) findViewById(R.id.radioFromA); //gets the state of the button
-        RadioButton radFromB = (RadioButton ) findViewById(R.id.radioFromB);//gets the state of the button
-        RadioButton radToA = (RadioButton ) findViewById(R.id.radioToA);//gets the state of the button
-        RadioButton radToB = (RadioButton ) findViewById(R.id.radioToB);//gets the state of the button
-
-        boolean FromA = radFromA.isChecked();   //assigned the state locally
-        boolean FromB = radFromB.isChecked();   //assigned the state locally
-        boolean ToA = radToA.isChecked();   //assigned the state locally
-        boolean ToB = radToB.isChecked();   //assigned the state locally
-
-        //does the arithmetic on the accounts
-
-        //checks if Account A is being transferred into Account A
-        if (FromA && ToA){
-            if (Amount >= 2000){
-                request_auth();
-            }
-            else {
-                double temp = FromAccountA - Amount;
-                double finalAmount = ToAccountA + temp;
-                String updated = String.valueOf(finalAmount);
-                AccountAFrom.setText(updated);
-                AccountATo.setText(updated);
-            }
-        }
-
-        //checks if Account A is being transferred into Account B
-        if (FromA && ToB){
-            if (Amount >= 2000){
-                request_auth();
-                double temp = FromAccountA - Amount;
-                double finalAmount = ToAccountB + temp;
-                String updatedUp = String.valueOf(finalAmount); //finalAmount is the new amount
-                String updatedDown = String.valueOf(temp); //temp is the subtracted amount
-                AccountAFrom.setText(updatedDown);
-                AccountBTo.setText(updatedUp);
-            }
-            else {
-                double temp = FromAccountA - Amount;
-                double finalAmount = ToAccountB + temp;
-                String updatedUp = String.valueOf(finalAmount); //finalAmount is the new amount
-                String updatedDown = String.valueOf(temp); //temp is the subtracted amount
-                AccountAFrom.setText(updatedDown);
-                AccountBTo.setText(updatedUp);
-            }
-        }
-
-        //checks if Account B is being transferred into Account A
-        if (FromB && ToA){
-            if (Amount >= 2000){
-                request_auth();
-                double temp = FromAccountB - Amount;
-                double finalAmount = ToAccountA + temp;
-                String updatedUp = String.valueOf(finalAmount); //finalAmount is the new amount
-                String updatedDown = String.valueOf(temp); //temp is the subtracted amount
-                AccountBFrom.setText(updatedDown);
-                AccountATo.setText(updatedUp);
-            }
-            else {
-                double temp = FromAccountB - Amount;
-                double finalAmount = ToAccountA + temp;
-                String updatedUp = String.valueOf(finalAmount); //finalAmount is the new amount
-                String updatedDown = String.valueOf(temp); //temp is the subtracted amount
-                AccountBFrom.setText(updatedDown);
-                AccountATo.setText(updatedUp);
-            }
-        }
-
-        //checks if Account B is being transferred into Account B
-        if (FromB && ToB){
-            if (Amount >= 2000){
-                request_auth();
-                double temp = FromAccountA - Amount;
-                double finalAmount = ToAccountA + temp;
-                String updated = String.valueOf(finalAmount);
-                AccountBFrom.setText(updated);
-                AccountBTo.setText(updated);
-            }
-            else {
-                double temp = FromAccountA - Amount;
-                double finalAmount = ToAccountA + temp;
-                String updated = String.valueOf(finalAmount);
-                AccountBFrom.setText(updated);
-                AccountBTo.setText(updated);
-            }
+    @Override
+    public void onClick(View view)
+    {
+        switch (view.getId()) {
+            case R.id.btnCancel:
+                cancelTransaction();
+                break;
+            case R.id.btnFinish:
+                finishTransaction();
+                break;
+            default:
+                break;
         }
     }
 
-    private void request_auth(){
+    private void finishTransaction(){
+        AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+        dlgAlert.setMessage("You are about to pay R" + ((EditText)findViewById(R.id.etPaymentAmount)).getText().toString() +
+                "\n to " + ((Spinner)findViewById(R.id.spnRecipientAccounts)).getSelectedItem().toString() + "." +
+                "\n\n Would you like to complete the transaction?");
+        dlgAlert.setTitle("Complete Transaction?");
+        dlgAlert.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        //dismiss the dialog
+                    }
+                });
+        dlgAlert.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Complete the transaction and save the values to the db at a later stage.
+                        Toast.makeText(getApplicationContext(), "Your Payment Was Successful!", Toast.LENGTH_LONG).show();
+                    }
+                });
+        dlgAlert.setCancelable(true);
+        dlgAlert.create().show();
+    }
 
+    private void cancelTransaction(){
+        clearAllFields((ViewGroup) findViewById(R.id.tlUserAccounts));
+    }
+
+    private void clearAllFields(ViewGroup group){
+
+        for (int i = 0, count = group.getChildCount(); i < count; ++i) {
+            View view = group.getChildAt(i);
+            if (view instanceof EditText) {
+                ((EditText)view).setText("");
+            }
+            if (view instanceof Spinner) {
+                ((Spinner)view).setSelection(0);
+            }
+
+            if(view instanceof ViewGroup && (((ViewGroup)view).getChildCount() > 0))
+                clearAllFields((ViewGroup)view);
+        }
     }
 }
