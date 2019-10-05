@@ -28,6 +28,10 @@ public class User_Accounts extends AppCompatActivity {
     //listens for the finish button to be clicked.
     //then performs the verification check on the amount.
     public void finish_transfer(android.view.View finished){
+        //gets the payment reference
+        TextView getRef = (TextView) findViewById(R.id.edtRef);
+        String reference = getRef.getText().toString();
+
         //gets the current values of the accounts.
         TextView AccountAFrom = (TextView) findViewById(R.id.lblAccountAAmount); //sets the amount to be subtracted from
         TextView AccountBFrom = (TextView) findViewById(R.id.lblAccountBAmount);//sets the amount to be subtracted from
@@ -86,6 +90,12 @@ public class User_Accounts extends AppCompatActivity {
         if (FromA && ToB){
             if (Amount >= 2000){
                 request_auth();
+                double temp = FromAccountA - Amount;
+                double finalAmount = ToAccountB + temp;
+                String updatedUp = String.valueOf(finalAmount); //finalAmount is the new amount
+                String updatedDown = String.valueOf(temp); //temp is the subtracted amount
+                AccountAFrom.setText(updatedDown);
+                AccountBTo.setText(updatedUp);
             }
             else {
                 double temp = FromAccountA - Amount;
@@ -101,6 +111,12 @@ public class User_Accounts extends AppCompatActivity {
         if (FromB && ToA){
             if (Amount >= 2000){
                 request_auth();
+                double temp = FromAccountB - Amount;
+                double finalAmount = ToAccountA + temp;
+                String updatedUp = String.valueOf(finalAmount); //finalAmount is the new amount
+                String updatedDown = String.valueOf(temp); //temp is the subtracted amount
+                AccountBFrom.setText(updatedDown);
+                AccountATo.setText(updatedUp);
             }
             else {
                 double temp = FromAccountB - Amount;
@@ -116,6 +132,11 @@ public class User_Accounts extends AppCompatActivity {
         if (FromB && ToB){
             if (Amount >= 2000){
                 request_auth();
+                double temp = FromAccountA - Amount;
+                double finalAmount = ToAccountA + temp;
+                String updated = String.valueOf(finalAmount);
+                AccountBFrom.setText(updated);
+                AccountBTo.setText(updated);
             }
             else {
                 double temp = FromAccountA - Amount;
@@ -127,7 +148,7 @@ public class User_Accounts extends AppCompatActivity {
         }
     }
 
-    private boolean request_auth(){
-    return true;
+    private void request_auth(){
+
     }
 }
