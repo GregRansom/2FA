@@ -21,8 +21,8 @@ public class User_Accounts extends AppCompatActivity {
 
     //listens for the cancel button to be clicked.
     public void cancel_transfer(android.view.View canceled){
-        Intent logout = new Intent(this.context, FingerprintHandler.class);
-        context.startActivity(logout);
+        Intent logout = new Intent(null, FingerprintHandler.class);
+        startActivity(logout);
     }
 
     //listens for the finish button to be clicked.
