@@ -31,8 +31,8 @@ public class User_Accounts extends AppCompatActivity implements View.OnClickList
     {
         switch (view.getId()) {
             case R.id.btnCancel:
-               cancelTransaction();
-               break;
+                cancelTransaction();
+                break;
             case R.id.btnFinish:
                 finishTransaction();
                 break;
@@ -49,10 +49,10 @@ public class User_Accounts extends AppCompatActivity implements View.OnClickList
         dlgAlert.setTitle("Complete Transaction?");
         dlgAlert.setNegativeButton("No",
                 new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                //dismiss the dialog
-            }
-        });
+                    public void onClick(DialogInterface dialog, int which) {
+                        //dismiss the dialog
+                    }
+                });
         dlgAlert.setPositiveButton("Yes",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

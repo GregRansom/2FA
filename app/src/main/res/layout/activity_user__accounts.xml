@@ -22,10 +22,10 @@
             android:layout_height="28dp" />
         <TableRow>
             <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/user_account_label"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/user_account_label"/>
 
             <Spinner
                 android:id="@+id/spnUserAccounts"
