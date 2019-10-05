@@ -31,6 +31,7 @@ public class User_Accounts extends AppCompatActivity {
         //gets the payment reference
         TextView getRef = (TextView) findViewById(R.id.edtRef);
         String reference = getRef.getText().toString();
+        
 
         //gets the current values of the accounts.
         TextView AccountAFrom = (TextView) findViewById(R.id.lblAccountAAmount); //sets the amount to be subtracted from
