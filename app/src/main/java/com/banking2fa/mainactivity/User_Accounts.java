@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,8 +28,23 @@ public class User_Accounts extends AppCompatActivity {
     //listens for the finish button to be clicked.
     //then performs the verification check on the amount.
     public void finish_transfer(android.view.View finished){
+        //gets the current values of the accounts.
+        TextView AccountAFrom = (TextView) findViewById(R.id.lblAccountAAmount); //sets the amount to be subtracted from
+        TextView AccountBFrom = (TextView) findViewById(R.id.lblAccountBAmount);//sets the amount to be subtracted from
+        TextView AccountATo = (TextView) findViewById(R.id.lblAccountAAmount2);//sets the amount to be added to
+        TextView AccountBTo = (TextView) findViewById(R.id.lblAccountBAmount2);//sets the amount to be added to
 
-        //gets the value of the Amount Field
+        String AccountAFromString = AccountAFrom.getText().toString();  //converts into local string
+        String AccountBFromString = AccountAFrom.getText().toString();//converts into local string
+        String AccountAToString = AccountAFrom.getText().toString();//converts into local string
+        String AccountBToString = AccountAFrom.getText().toString();//converts into local string
+
+        double FromAccountA = Double.parseDouble(AccountAFromString); //assigns proper variable type
+        double FromAccountB = Double.parseDouble(AccountBFromString);//assigns proper variable type
+        double ToAccountA = Double.parseDouble(AccountAToString);//assigns proper variable type
+        double ToAccountB = Double.parseDouble(AccountBToString);//assigns proper variable type
+
+                //gets the value of the Amount Field
         EditText edtamount = (EditText) findViewById(R.id.edtAmount); //gets the input
         String AmountString = edtamount.getText().toString(); //converts the EditText into local text
         double Amount = Double.parseDouble(AmountString);       //passes the string into double format
@@ -50,24 +66,64 @@ public class User_Accounts extends AppCompatActivity {
         boolean ToA = radToA.isChecked();   //assigned the state locally
         boolean ToB = radToB.isChecked();   //assigned the state locally
 
-        //does verification check
-        if (FromA){     //if From Account A is selected
-          radToB.setChecked(true);  //add to Account B
-          radToA.setChecked(false); // and NOT to account A
-        }
-        else if (FromB){   // if From Account B is selected
-            radToA.setChecked(true);    //Add to account A
-            radToB.setChecked(false);   // and NOT to account B
+        //does the arithmetic on the accounts
+
+        //checks if Account A is being transferred into Account A
+        if (FromA && ToA){
+            if (Amount >= 2000){
+                request_auth();
+            }
+            else {
+                double temp = FromAccountA - Amount;
+                double finalAmount = ToAccountA + temp;
+                String updated = String.valueOf(finalAmount);
+                AccountAFrom.setText(updated);
+                AccountATo.setText(updated);
+            }
         }
 
-        
-        start_finish(Amount);
-    }
+        //checks if Account A is being transferred into Account B
+        if (FromA && ToB){
+            if (Amount >= 2000){
+                request_auth();
+            }
+            else {
+                double temp = FromAccountA - Amount;
+                double finalAmount = ToAccountB + temp;
+                String updatedUp = String.valueOf(finalAmount); //finalAmount is the new amount
+                String updatedDown = String.valueOf(temp); //temp is the subtracted amount
+                AccountAFrom.setText(updatedDown);
+                AccountBTo.setText(updatedUp);
+            }
+        }
 
-    //performs a verification check on the amount being requested to transfer.
-    private void start_finish(double amount){
-        if (amount >= 2000){
-            request_auth();
+        //checks if Account B is being transferred into Account A
+        if (FromB && ToA){
+            if (Amount >= 2000){
+                request_auth();
+            }
+            else {
+                double temp = FromAccountB - Amount;
+                double finalAmount = ToAccountA + temp;
+                String updatedUp = String.valueOf(finalAmount); //finalAmount is the new amount
+                String updatedDown = String.valueOf(temp); //temp is the subtracted amount
+                AccountBFrom.setText(updatedDown);
+                AccountATo.setText(updatedUp);
+            }
+        }
+
+        //checks if Account B is being transferred into Account B
+        if (FromB && ToB){
+            if (Amount >= 2000){
+                request_auth();
+            }
+            else {
+                double temp = FromAccountA - Amount;
+                double finalAmount = ToAccountA + temp;
+                String updated = String.valueOf(finalAmount);
+                AccountBFrom.setText(updated);
+                AccountBTo.setText(updated);
+            }
         }
     }
 

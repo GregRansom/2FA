@@ -153,4 +153,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
+    <TextView
+        android:id="@+id/lblAccountAAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="72dp"
+        android:text="R100 000"
+        app:layout_constraintStart_toEndOf="@+id/radioFromA"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblAccountAAmount2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="63dp"
+        android:text="R100 000"
+        app:layout_constraintStart_toEndOf="@+id/radioToA"
+        app:layout_constraintTop_toBottomOf="@+id/lblAccountBAmount" />
+
+    <TextView
+        android:id="@+id/lblAccountBAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:text="R120 000"
+        app:layout_constraintStart_toEndOf="@+id/radioFromB"
+        app:layout_constraintTop_toBottomOf="@+id/lblAccountAAmount" />
+
+    <TextView
+        android:id="@+id/lblAccountBAmount2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="10dp"
+        android:text="R120 000"
+        app:layout_constraintStart_toEndOf="@+id/radioToB"
+        app:layout_constraintTop_toBottomOf="@+id/lblAccountAAmount2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
