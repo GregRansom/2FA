@@ -31,8 +31,8 @@
                 android:id="@+id/spnUserAccounts"
                 android:layout_width="226dp"
                 android:layout_height="wrap_content"
-                android:entries="@array/user_accounts"
                 android:spinnerMode="dialog"
+                android:entries="@array/user_accounts"
                 android:prompt="@string/user_account_prompt" />
         </TableRow>
         <Space
@@ -49,9 +49,9 @@
                 android:id="@+id/spnRecipientAccounts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/recipient_accounts"
                 android:spinnerMode="dialog"
-                android:prompt="@string/recipient_account_prompt" />
+                android:entries="@array/recipient_accounts"
+               android:prompt="@string/recipient_account_prompt" />
         </TableRow>
         <Space
             android:layout_width="match_parent"
@@ -77,8 +77,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/payment_reference_label" />
+                android:layout_gravity="center" />
+                //android:text="@string/payment_reference_label" />
             <EditText
                 android:id="@+id/etPaymentReference"
                 android:layout_width="match_parent"
