@@ -18,7 +18,7 @@ public class User_Accounts extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user__accounts);
-
+        setTitle("Payments");
         /*mButton = findViewById(R.id.btnCancel);
         mButton.setOnClickListener(this);*/
         (findViewById(R.id.btnCancel)).setOnClickListener(this);
